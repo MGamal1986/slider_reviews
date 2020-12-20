@@ -1,0 +1,108 @@
+@import "../../styles/colors";
+.Main {
+    text-align: center;
+    .Title {
+        h2 {
+            margin: 0;
+        }
+        text-transform: capitalize;
+        color: $mainColor;
+        font-size: 2rem;
+        span {
+            color: $secColor;
+            margin-right: 0.5rem;
+            font-weight: bold;
+        }
+    }
+    .Slider {
+        position: relative;
+        height: 450px;
+        width: 600px;
+        overflow: hidden;
+        main {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            .Image {
+                height: 150px;
+                width: 150px;
+                border-radius: 50%;
+                overflow: hidden;
+                margin: 1rem auto 1rem;
+                img {
+                    width: 100%;
+                    height: 100%;
+                    -o-object-fit: cover;
+                    object-fit: cover;
+                }
+            }
+            .Info {
+                h4 {
+                    color: $secColor;
+                    text-transform: uppercase;
+                    margin-bottom: 0.5rem;
+                    letter-spacing: 2px;
+                    font-size: 1rem;
+                }
+                h5 {
+                    color: $mainColor;
+                    text-transform: capitalize;
+                    letter-spacing: 2px;
+                    font-weight: 500;
+                    margin-bottom: 0.5rem;
+                }
+            }
+            .Text {
+                color: $mainColor;
+            }
+            .Icon {
+                margin-top: 1rem;
+                color: $secColor;
+                font-size: 2.5rem;
+            }
+            &.NextSlide {
+                transform: translateX(100%);
+            }
+            &.LastSlide {
+                transform: translateX(-100%);
+            }
+            &.ActiveSlide {
+                opacity: 1;
+                transform: translateX(0);
+            }
+            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        }
+        .Prev,
+        .Next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            button {
+                background: $mainColor;
+                padding: 0.5rem;
+                border: none;
+                color: #fff;
+                border-radius: 5px;
+                width: 1.5rem;
+                height: 1.5rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+                transition: background 0.3s ease-in-out;
+                &:hover {
+                    background: $secColor;
+                }
+            }
+        }
+        .Prev {
+            left: 5px;
+        }
+        .Next {
+            right: 5px;
+        }
+    }
+}
